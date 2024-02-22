@@ -1,44 +1,26 @@
 #include "../include/Dog.hpp"
 
-/**************************************************************/
-/*                Constructors and Destructor                 */
-/*                                                            */
-/*  ->Dog::Dog();                                             */
-/*  ->Dog::Dog(const Dog& copy);                              */
-/*  ->Dog   &Dog::operator=(const Dog& copy);                 */
-/*                                                            */
-/*  ->Dog::~Dog();                                            */
-/*                                                            */
-/**************************************************************/
-
-Dog::Dog(){
-	this->type = "Dog";
-	std::cout << "Dog constructor called\n";
+//Orthodox Canonical Form
+Dog::Dog(void){
+	setType("Dog");
+	cout << "Dog constructor is called" << endl;
 }
-
 Dog::Dog(const Dog& copy){
-    std::cout << "Dog copy constructor called\n";
-    *this = copy;
+	cout << "Dog Copy constructor is called" << endl;
+	*this = copy;
 }
-
-Dog	&Dog::operator=(const Dog& copy){
-	this->type = copy.type;
+Dog& Dog::operator=(const Dog& copy){
+	if (this != &copy)
+	{
+		setType(copy.getType());
+	}
 	return (*this);
 }
-
-Dog::~Dog(){
-    std::cout << "Dog destructor called\n";
+Dog::~Dog(void){
+	cout << "Dog destructor is called" << endl;
 }
 
-/**************************************************************/
-/*                      member functions                      */
-/*                                                            */
-/*                                                            */
-/*  ->void  Dog::makeSound() const;                           */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-void	Dog::makeSound() const{
-	std::cout << "woof woof\n";
+//Member function
+void Dog::makeSound() const{
+	cout << "Houv Houv" << endl;
 }

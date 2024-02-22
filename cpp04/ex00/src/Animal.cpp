@@ -1,75 +1,36 @@
 #include "../include/Animal.hpp"
 
-/**************************************************************/
-/*                Constructors and Destructor                 */
-/*                                                            */
-/*  ->Animal::Animal(): type("Animal");                       */
-/*  ->Animal::Animal(std::string arg): type(arg);             */
-/*  ->Animal::Animal(const Animal& copy);                     */
-/*  ->Animal &Animal::operator=(const Animal& copy)           */
-/*                                                            */
-/*  ->Animal::~Animal();                                      */
-/*                                                            */
-/**************************************************************/
-
-Animal::Animal(): type("Animal"){
-	std::cout << "Animal constructor is called" << std::endl;
+//Orthodox Canonical Form
+Animal::Animal(void): type("DefaultAnimal"){
+	cout << "Animal Default constructor is called" << endl;
 }
-
-Animal::Animal(std::string arg): type(arg){
-	std::cout << "Animal constructor is called" << std::endl;
+Animal::Animal(const string _type) : type(_type){
+	cout << "Animal Constructor is called" << endl;
 }
-
 Animal::Animal(const Animal& copy){
 	*this = copy;
-	std::cout << "Animal copy constructor called\n" << std::endl;
+	cout << "Animal Copy constructor is called" << endl;
 }
-
-Animal &Animal::operator=(const Animal& copy){
-	this->type = copy.type;
+Animal::~Animal(void){
+	cout << "Animal destructor is called" << endl;
+}
+Animal& Animal::operator=(const Animal& copy){
+	if (this != &copy)
+	{
+		setType(copy.getType());
+	}
 	return (*this);
 }
 
-Animal::~Animal(){
-	std::cout << "Animal destructor called\n" << std::endl;
+//Setters and Getters
+void	Animal::setType(const string type){
+	this->type = type;
+}
+string	Animal::getType(void) const{
+	return this->type;
 }
 
-/**************************************************************/
-/*                      member functions                      */
-/*                                                            */
-/*                                                            */
-/*  ->void Animal::makeSound() const                          */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-
-void Animal::makeSound() const {
-    std::cout << "regular animal sound\n";
-}
-
-/**************************************************************/
-/*                          getter                            */
-/*                                                            */
-/*                                                            */
-/*  ->std::string Animal::getType() const;                    */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-std::string Animal::getType() const{
-	return type;
-}
-
-/**************************************************************/
-/*                          setter                            */
-/*                                                            */
-/*                                                            */
-/*  ->void	Animal::setType(std::string arg)                  */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-void	Animal::setType(std::string arg){
-	this->type = arg;
+//Member functions
+void	Animal::makeSound() const{
+	cout << "Animal sound !! " << endl;
 }

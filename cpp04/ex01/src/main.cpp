@@ -1,39 +1,57 @@
 #include "../include/Animal.hpp"
-#include "../include/Cat.hpp"
-#include "../include/Dog.hpp"
 #include "../include/WrongAnimal.hpp"
+#include "../include/Cat.hpp"
 #include "../include/WrongCat.hpp"
+#include "../include/Dog.hpp"
 #include "../include/Brain.hpp"
 
-int main()
+void	pressEnter(void)
 {
-    {
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
-        std::cout << j->getType() << " " << std::endl;
-        std::cout << i->getType() << " " << std::endl;
-        i->makeSound();
-        j->makeSound();
-        
-        delete j;
-        delete i;
-        const int numAnimals = 4;
-        Animal* animals[numAnimals];
+	cout << endl << "press ENTER to continue" << endl;
+	cin.ignore();
+	cout << "\033c";
+}
 
-        for (int i = 0; i < numAnimals / 2; ++i) {
-            animals[i] = new Dog();
-        }
-        for (int i = numAnimals / 2; i < numAnimals; ++i) {
-            animals[i] = new Cat();
-        }
-        for (int i = 0; i < numAnimals; ++i) {
-            animals[i]->makeSound();
-        }
-        Dog* doggy = dynamic_cast<Dog*>(animals[0]);
-        std::cout << doggy->getBrain()->ideas[0] << std::endl;
-        for (int i = 0; i < numAnimals; ++i) {
-            delete animals[i];
-        }
-    }
-    return 0;
+#define MAX_AnimalS 10
+
+int main(void)
+{
+// 	Cat obj("Funda");
+// 	Animal *obj2 = new Cat(obj);
+
+// 	//delete obj2;
+// 	getchar();
+// 	getchar();
+// 	const Brain &b = obj.getBrain();
+// 	cout << "idea : " << b.getIdea(1) << endl;
+// getchar();
+// 	getchar();
+// 	obj2->makeSound();
+
+	if (MAX_AnimalS < 2 || MAX_AnimalS % 2 != 0)
+	{
+		cout << "MAX_AnimalS must be an even number greater than 1" << endl;
+		return (1);
+	}
+
+	const Animal* Animals[MAX_AnimalS];
+
+	for (size_t i = 0; i < MAX_AnimalS; i++)
+		Animals[i] = 0;
+
+
+	{
+		for (size_t i = 0; i < MAX_AnimalS; i++)
+		{
+			if (i % 2 == 0)
+				Animals[i] = new Dog("2+2=4");
+			else
+				Animals[i] = new Cat("2+2=5");
+		}
+
+		for (size_t i = 0; i < MAX_AnimalS; i++)
+			delete Animals[i];
+	}
+
+	return (0);
 }

@@ -1,15 +1,13 @@
-NAME	=	abstract
+NAME	=	interface
 
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-SRC		=	./src/main.cpp \
-			./src/AAnimal.cpp \
-			./src/Brain.cpp \
-			./src/Cat.cpp \
-			./src/WrongCat.cpp \
-			./src/Dog.cpp \
-			./src/WrongAnimal.cpp \
-
+SRC		=	./src/AMateria.cpp \
+			./src/Character.cpp \
+			./src/Cure.cpp \
+			./src/Ice.cpp \
+			./src/MateriaSource.cpp \
+			./src/main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

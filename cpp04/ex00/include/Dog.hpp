@@ -1,18 +1,19 @@
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+#include "Animal.hpp"
 
-class Dog: public Animal{
+
+class Dog : public Animal{
 public:
-	//constructor and destructor
-	Dog();
+	//Orthodox Canonical Form
+	Dog(void);
 	Dog(const Dog& copy);
-	Dog &operator=(const Dog& copy);
-	~Dog();
+	Dog& operator=(const Dog& copy);
+	~Dog(void);
 
-	//member funciton
-	void makeSound() const;
+	//Member function
+	void makeSound(void) const;
 };
 
 #endif

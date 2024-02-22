@@ -1,60 +1,50 @@
 #include "../include/Cat.hpp"
 
-/**************************************************************/
-/*                Constructors and Destructor                 */
-/*                                                            */
-/*  ->Cat::Cat();                                             */
-/*  ->Cat::Cat(const Cat& copy);                              */
-/*  -Cat &Cat::operator=(const Cat& copy);                    */
-/*                                                            */
-/*  ->Cat::~Cat();                                            */
-/*                                                            */
-/**************************************************************/
-
-Cat::Cat(){
-	this->type = "Cat";
+//Orthodox Canonical Form
+Cat::Cat(void){
+	setType("Cat");
 	this->_brain = new Brain();
-	std::cout << "Cat constructor called\n";
+	cout << "Cat constructor is called" << endl;
 }
-
+Cat::Cat(string idea){
+	this->_brain = new Brain(idea);
+	setType("Cat");
+	cout << "Cat constructor is called" << endl;
+}
 Cat::Cat(const Cat& copy){
-    std::cout << "Cat copy constructor called\n";
-    *this = copy;
+	cout << "Cat Copy constructor is called" << endl;
+	this->_brain = new Brain(copy.getBrain());
+	setType("Cat");
 }
-
-Cat	&Cat::operator=(const Cat& copy){
-	this->type = copy.type;
-	this->_brain = copy._brain;
+Cat& Cat::operator=(const Cat& copy){
+	cout << "Cat operator is called " << endl;
+	if (this != &copy)
+	{
+		*this->_brain = copy.getBrain();
+		setType(copy.getType());
+	}
 	return (*this);
 }
-
-Cat::~Cat() {
-	delete _brain;
-    std::cout << "Cat destructor called\n";
+Cat::~Cat(void){
+	delete this->_brain;
+	cout << "Cat destructor is called" << endl;
 }
 
-/**************************************************************/
-/*                      member functions                      */
-/*                                                            */
-/*                                                            */
-/*  ->void Cat::makeSound() const;                            */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-void	Cat::makeSound() const{
-	std::cout << "meow meow\n";
+//Setters and Getters
+void	Cat::setBrain(const string idea){
+	delete this->_brain;
+	this->_brain = new Brain(idea);
+}
+void	Cat::setBrain(const Brain& brain){
+	delete this->_brain;
+	this->_brain = new Brain(brain);
+}
+const Brain& Cat::getBrain(void) const{
+	return (*this->_brain);
 }
 
-/**************************************************************/
-/*                          getter                            */
-/*                                                            */
-/*                                                            */
-/*  ->Brain* Cat::getBrain() const;                           */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-Brain* Cat::getBrain() const{
-	return _brain;
+//Member function
+void Cat::makeSound() const{
+	cout << "Miyavv Miyavv" << endl;
 }
+

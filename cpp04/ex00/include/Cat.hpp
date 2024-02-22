@@ -1,18 +1,19 @@
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
+#include "Animal.hpp"
 
-class Cat: public Animal{
+
+class Cat : public Animal{
 public:
-	//constructor and destructor
-	Cat();
+	//Orthodox Canonical Form
+	Cat(void);
 	Cat(const Cat& copy);
-	Cat &operator=(const Cat& copy);
-	~Cat();
-	
-	//member funciton
-	void makeSound() const;
+	Cat& operator=(const Cat& copy);
+	~Cat(void);
+
+	//Member function
+	void makeSound(void) const;
 };
 
 #endif

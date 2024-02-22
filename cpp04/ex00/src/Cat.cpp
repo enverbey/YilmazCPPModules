@@ -1,44 +1,26 @@
 #include "../include/Cat.hpp"
 
-/**************************************************************/
-/*                Constructors and Destructor                 */
-/*                                                            */
-/*  ->Cat::Cat();                                             */
-/*  ->Cat::Cat(const Cat& copy);                              */
-/*  -Cat &Cat::operator=(const Cat& copy);                    */
-/*                                                            */
-/*  ->Cat::~Cat();                                            */
-/*                                                            */
-/**************************************************************/
-
-Cat::Cat(){
-	this->type = "Cat";
-	std::cout << "Cat constructor called\n";
+//Orthodox Canonical Form
+Cat::Cat(void){
+	setType("Cat");
+	cout << "Cat constructor is called" << endl;
 }
-
 Cat::Cat(const Cat& copy){
-    std::cout << "Cat copy constructor called\n";
-    *this = copy;
+	cout << "Cat Copy constructor is called" << endl;
+	*this = copy;
 }
-
-Cat	&Cat::operator=(const Cat& copy){
-	this->type = copy.type;
+Cat& Cat::operator=(const Cat& copy){
+	if (this != &copy)
+	{
+		setType(copy.getType());
+	}
 	return (*this);
 }
-
-Cat::~Cat() {
-    std::cout << "Cat destructor called\n";
+Cat::~Cat(void){
+	cout << "Cat destructor is called" << endl;
 }
 
-/**************************************************************/
-/*                      member functions                      */
-/*                                                            */
-/*                                                            */
-/*  ->void Cat::makeSound() const;                            */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-void	Cat::makeSound() const{
-	std::cout << "meow meow\n";
+//Member function
+void Cat::makeSound() const{
+	cout << "Miyavv Miyavv" << endl;
 }

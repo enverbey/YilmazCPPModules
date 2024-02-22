@@ -1,18 +1,19 @@
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
 
-# include "WrongAnimal.hpp"
+#include "WrongAnimal.hpp"
 
-class WrongCat: public WrongAnimal{
+
+class WrongCat : public WrongAnimal{
 public:
-	//constructor and destructor
-	WrongCat();
+	//Orthodox Canonical Form
+	WrongCat(void);
 	WrongCat(const WrongCat& copy);
-	WrongCat &operator=(const WrongCat& copy);
-	~WrongCat();
+	WrongCat& operator=(const WrongCat& copy);
+	~WrongCat(void);
 
-	//member funciton
-	void makeSound() const;
+	//Member function
+	void makeSound(void) const;
 };
 
 #endif

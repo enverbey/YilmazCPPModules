@@ -1,29 +1,32 @@
 NAME	=	brain
 
-FLAG	=	-Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRC		=	./src/main.cpp \
 			./src/Animal.cpp \
+			./src/Brain.cpp \
 			./src/Cat.cpp \
+			./src/WrongCat.cpp \
 			./src/Dog.cpp \
 			./src/WrongAnimal.cpp \
-			./src/WrongCat.cpp \
-			./src/Brain.cpp
-			
 
-CC		=	g++
+
+OBJ = $(SRC:.cpp=.o)
+
+CC		=	c++
 
 RM		=	rm -rf
 
 all: $(NAME)
 
-$(NAME):
-	@$(CC) $(SRC) $(FLAG) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 
 clean:
-	@$(RM) $(NAME)
+	@$(RM) $(OBJ)
 
 fclean : clean
+	@$(RM) $(NAME)
 
 re: fclean all
 

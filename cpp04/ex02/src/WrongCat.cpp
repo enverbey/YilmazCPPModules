@@ -1,44 +1,26 @@
 #include "../include/WrongCat.hpp"
 
-/**************************************************************/
-/*                Constructors and Destructor                 */
-/*                                                            */
-/*  ->WrongCat::WrongCat();                                   */
-/*  ->WrongCat::WrongCat(const WrongCat& copy);               */
-/*  -WrongCat	&WrongCat::operator=(const WrongCat& copy);   */
-/*                                                            */
-/*  ->WrongCat::~WrongCat();                                  */
-/*                                                            */
-/**************************************************************/
-
-WrongCat::WrongCat(){
-	this->type = "WrongCat";
-	std::cout << "WrongCat constructor called\n";
+//Orthodox Canonical Form
+WrongCat::WrongCat(void){
+	setType("WrongCat");
+	cout << "WrongCat constructor is called" << endl;
 }
-
 WrongCat::WrongCat(const WrongCat& copy){
-    std::cout << "WrongCat copy constructor called\n";
-    *this = copy;
+	cout << "WrongCat Copy constructor is called" << endl;
+	*this = copy;
 }
-
-WrongCat	&WrongCat::operator=(const WrongCat& copy){
-	this->type = copy.type;
+WrongCat& WrongCat::operator=(const WrongCat& copy){
+	if (this != &copy)
+	{
+		setType(copy.getType());
+	}
 	return (*this);
 }
-
-WrongCat::~WrongCat() {
-    std::cout << "WrongCat destructor called\n";
+WrongCat::~WrongCat(void){
+	cout << "WrongCat destructor is called" << endl;
 }
 
-/**************************************************************/
-/*                      member functions                      */
-/*                                                            */
-/*                                                            */
-/*  ->void	WrongCat::makeSound() const;                      */
-/*                                                            */
-/*                                                            */
-/**************************************************************/
-
-void	WrongCat::makeSound() const{
-	std::cout << "meow meow\n";
+//Member function
+void WrongCat::makeSound() const{
+	cout << "Wrong Miyavv Miyavv" << endl;
 }

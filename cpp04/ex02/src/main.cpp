@@ -1,40 +1,31 @@
-#include "../include/Animal.hpp"
+#include "../include/WrongCat.hpp"
 #include "../include/Cat.hpp"
 #include "../include/Dog.hpp"
-#include "../include/WrongAnimal.hpp"
-#include "../include/WrongCat.hpp"
-#include "../include/Brain.hpp"
 
-int main()
+void	pressEnter(void)
 {
-    {
-        // const Animal* meta = new Animal(); error: allocating an object of abstract class type 'Animal'
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
-        std::cout << j->getType() << " " << std::endl;
-        std::cout << i->getType() << " " << std::endl;
-        i->makeSound();
-        j->makeSound();
-        
-        delete j;
-        delete i;
-        const int numAnimals = 4;
-        Animal* animals[numAnimals];
+	cout << endl << "press ENTER to continue" << endl;
+	cin.ignore();
+	cout << "\033c";
+}
 
-        for (int i = 0; i < numAnimals / 2; ++i) {
-            animals[i] = new Dog();
-        }
-        for (int i = numAnimals / 2; i < numAnimals; ++i) {
-            animals[i] = new Cat();
-        }
-        for (int i = 0; i < numAnimals; ++i) {
-            animals[i]->makeSound();
-        }
-        Dog* doggy = dynamic_cast<Dog*>(animals[0]);
-        std::cout << doggy->getBrain()->ideas[0] << std::endl;
-        for (int i = 0; i < numAnimals; ++i) {
-            delete animals[i];
-        }
-    }
-    return 0;
+int main(void)
+{
+	{
+		const AAnimal* aanimals[10];
+		for (int i = 0; i < 10; i++)
+		{
+			if (i % 2 == 0)
+				aanimals[i] = new Dog("2+2=4");
+			else
+				aanimals[i] = new Cat("2+2=5");
+		}
+
+		for (int i = 0; i < 10; i++)
+		{
+			delete aanimals[i];
+		}
+	}
+
+	return (0);
 }

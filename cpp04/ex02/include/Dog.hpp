@@ -1,24 +1,27 @@
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 
-class Dog: public Animal{
-private:
-	Brain* _brain;
+class Dog : public AAnimal{
 public:
-	//constructor and destructor
-	Dog();
+	//Orthodox Canonical Form
+	Dog(void);
+	Dog(string idea);
 	Dog(const Dog& copy);
-	Dog &operator=(const Dog& copy);
-	~Dog();
+	Dog& operator=(const Dog& copy);
+	~Dog(void);
 
-	//member funciton
-	void makeSound() const;
+	//Setters and Getters
+	void	setBrain(const string idea);
+	void	setBrain(const Brain& brain);
+	const Brain& getBrain() const;
 
-	//getter
-	Brain* getBrain() const;
+	//Member function
+	void makeSound(void) const;
+private:
+	Brain*	_brain;
 };
 
 #endif
