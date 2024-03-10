@@ -26,7 +26,7 @@ void	Bureaucrat::incrementGrade(void){
 		throw GradeTooHighException();
 	this->grade--;
 }
-void	Bureaucrat::incrementGrade(unsigned int promotion){
+void	Bureaucrat::incrementGrade(const int promotion){
 	if (this->grade - promotion < __HIGH__)
 		throw GradeTooHighException();
 	this->grade -= promotion;
@@ -36,7 +36,7 @@ void	Bureaucrat::decrementGrade(void){
 		throw GradeTooLowException();
 	this->grade++;
 }
-void	Bureaucrat::decrementGrade(const unsigned int demotion){
+void	Bureaucrat::decrementGrade(const int demotion){
 	if (this->grade + demotion > __LOW__)
 		throw GradeTooLowException();
 	this->grade += demotion;

@@ -29,9 +29,9 @@ public:
 
 	//Member functions
 	void	incrementGrade(void);
-	void	incrementGrade(const unsigned int);
+	void	incrementGrade(const int);
 	void	decrementGrade(void);
-	void	decrementGrade(const unsigned int);
+	void	decrementGrade(const int);
 
 //exception classes
 	class GradeTooHighException : public exception{

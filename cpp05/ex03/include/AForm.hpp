@@ -18,7 +18,7 @@ class Bureaucrat;
 class AForm{
 public:
 	//Orthodox Canonical AForm
-	~AForm(void);
+	virtual ~AForm(void);
 	AForm(void);
 	AForm(const string& name);
 	AForm(const string& name, \
