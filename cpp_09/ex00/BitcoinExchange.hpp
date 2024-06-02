@@ -14,7 +14,6 @@ using std::cerr;
 using std::map;
 using std::string;
 using std::ifstream;
-using std::stof;
 using std::stringstream;
 class BitcoinExchange
 {

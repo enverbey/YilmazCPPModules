@@ -18,7 +18,8 @@ void BitcoinExchange::getData()
 	string		date;
 	string		value;
 	string		line;
-	int			i;
+	size_t		i;
+	float		f;
 
 	if (!file.is_open())
 		throw std::runtime_error("File could not be opened!");
@@ -32,16 +33,18 @@ void BitcoinExchange::getData()
 			throw std::runtime_error("File format is not correct!");
 		date = line.substr(0, i);
 		value = line.substr(i + 1);
-		this->m_bitcoinValues[date] = stof(value); // std::unordered_map kullanarak veri ekleme, stof :: string to float
+		stringstream ss(value);
+		ss >> f;
+		this->m_bitcoinValues[date] = f; // std::unordered_map kullanarak veri ekleme, stof :: string to float
 	}
 }
 
 void BitcoinExchange::calculateBitcoinValues(const string &filename){
-	ifstream	file(filename);
+	ifstream	file(filename.c_str()); // c_str() fonksiyonu stringi const char *'a çevirir
 	string		date;
 	string		value;
 	string		line;
-	int			i;
+	size_t			i;
 
 	if (!file.is_open())
 		throw std::runtime_error("File could not be opened!");
